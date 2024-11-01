@@ -12,3 +12,7 @@ configuration:
     name: Web UI Port
     description: |
       The port to use for the Web-UI. Default: 8482
+  mdns_network_interface:
+    name: mDNS Network Interface
+    description: |
+      Limit mDNS to this network interface. Only change it if you know what you are doing. Default: empty
