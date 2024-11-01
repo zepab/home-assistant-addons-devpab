@@ -1,0 +1,25 @@
+version: "3.0.0-alpha.13"
+slug: hamh_test
+name: Home-Assistant-Matter-Hub (Test Addon // DO NOT USE)
+description: THIS IS FOR TESTING PURPOSE. DO NOT USE THIS ADDON.
+url: https://github.com/t0bst4r/home-assistant-matter-hub
+homeassistant: 2024.1.0
+homeassistant_api: true
+host_network: true
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
+ingress: true
+ingress_port: 8482
+map:
+  - addon_config:rw
+options:
+  log_level: info
+  disable_log_colors: false
+  mdns_network_interface: ""
+schema:
+  log_level: list(silly|debug|info|warn|error)
+  disable_log_colors: bool
+  mdns_network_interface: "str?"
