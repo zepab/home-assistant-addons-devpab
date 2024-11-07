@@ -1,4 +1,4 @@
-version: "3.0.0-alpha.19"
+version: "3.0.0-alpha.20"
 slug: hamh
 name: Home-Assistant-Matter-Hub
 description: Publish your entities from Home Assistant to any Matter-compatible controller like Alexa, Apple Home or Google Home.
@@ -15,12 +15,12 @@ webui: http://[HOST]:[PORT:8482]/
 map:
   - addon_config:rw
 options:
-  log_level: info
+  app_log_level: info
   disable_log_colors: false
   web_port: 8482
   mdns_network_interface: ""
 schema:
-  log_level: list(silly|debug|info|warn|error)
+  app_log_level: list(silly|debug|info|warn|error)
   disable_log_colors: bool
   web_port: int(1,)
   mdns_network_interface: "str?"

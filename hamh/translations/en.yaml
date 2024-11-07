@@ -1,9 +1,9 @@
 ---
 configuration:
-  log_level:
+  app_log_level:
     name: Log Level
     description: |
-      The log level used for this addon. One of: debug, info, warn, error
+      The log level used for this addon. One of: silly, debug, info, warn, error
   disable_log_colors:
     name: Disable log colors
     description: |
