@@ -1,0 +1,39 @@
+name: Release Home-Assistant-Matter-Hub
+on:
+  repository_dispatch:
+    event_name: release-hamh
+# client_payload:
+#   version: "3.0.0-alpha.33"
+
+env:
+  repo_url: https://raw.githubusercontent.com/t0bst4r/home-assistant-matter-hub
+  repo_changelog: CHANGELOG.md
+  changelog_file: hamh/CHANGELOG.md
+  build_file: hamh/build.yaml
+  config_file: hamh/config.yaml
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Copy Changelog
+        run: |
+          curl ${{ env.repo_url }}/${{ github.event.client_payload.version }}/${{ env.repo_changelog }} > ${{ env.changelog_file }}
+          git add ${{ env.changelog_file }}
+      - name: Apply release version
+        run: |
+          yq -i ".args.package_version = \"${{ github.event.client_payload.version }}\"" ${{ env.build_file }}
+          yq -i ".version = \"${{ github.event.client_payload.version }}\"" ${{ env.config_file }}
+          git add ${{ env.build_file }} ${{ env.config_file }}
+      - name: Publish
+        run: |
+          git commit -m "bumb(home-assistant-matter-hub): use version ${{ github.event.client_payload.version }}"
+          git push origin main
