@@ -1,4 +1,4 @@
-version: "3.0.0-alpha.13"
+version: "3.0.0-alpha.33"
 slug: hamh_test
 name: Home-Assistant-Matter-Hub (Test Addon // DO NOT USE)
 description: THIS IS FOR TESTING PURPOSE. DO NOT USE THIS ADDON.
@@ -12,7 +12,9 @@ arch:
   - amd64
   - armv7
 ingress: true
-ingress_port: 8482
+ingress_port: 0
+panel_icon: mdi:bridge
+panel_title: Matter bridges
 map:
   - addon_config:rw
 options:
