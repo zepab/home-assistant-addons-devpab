@@ -2,6 +2,12 @@ name: Release Home-Assistant-Matter-Hub
 on:
   repository_dispatch:
     event_name: release-hamh
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: The release version of Home Assistant Matter Hub
+        required: true
 # client_payload:
 #   version: "3.0.0-alpha.33"
 
@@ -21,19 +27,29 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Get Version
+        id: event_parser
+        run: |
+          if [ -n "${{ github.event.client_payload.version }}" ]; then
+            echo "version=${{ github.event.client_payload.version }}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ github.event.inputs.version }}" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            exit 1
+          fi
       - run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: Copy Changelog
         run: |
-          curl ${{ env.repo_url }}/${{ github.event.client_payload.version }}/${{ env.repo_changelog }} > ${{ env.changelog_file }}
+          curl ${{ env.repo_url }}/v${{ steps.event_parser.outputs.version }}/${{ env.repo_changelog }} > ${{ env.changelog_file }}
           git add ${{ env.changelog_file }}
       - name: Apply release version
         run: |
-          yq -i ".args.package_version = \"${{ github.event.client_payload.version }}\"" ${{ env.build_file }}
-          yq -i ".version = \"${{ github.event.client_payload.version }}\"" ${{ env.config_file }}
+          yq -i ".args.package_version = \"${{ steps.event_parser.outputs.version }}\"" ${{ env.build_file }}
+          yq -i ".version = \"${{ steps.event_parser.outputs.version }}\"" ${{ env.config_file }}
           git add ${{ env.build_file }} ${{ env.config_file }}
       - name: Publish
         run: |
-          git commit -m "bumb(home-assistant-matter-hub): use version ${{ github.event.client_payload.version }}"
+          git commit -m "bumb(home-assistant-matter-hub): bumb to version ${{ steps.event_parser.outputs.version }}"
           git push origin main
