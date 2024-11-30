@@ -1,4 +1,4 @@
-version: "3.0.0-alpha.45"
+version: "3.0.0-alpha.46"
 slug: hamh_test
 name: Home-Assistant-Matter-Hub (Test Addon // DO NOT USE)
 description: THIS IS FOR TESTING PURPOSE. DO NOT USE THIS ADDON.

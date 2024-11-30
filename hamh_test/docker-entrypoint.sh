@@ -11,4 +11,5 @@ home-assistant-matter-hub start \
   --storage-location=/config/data \
   --web-port=$(bashio::addon.ingress_port) \
   --home-assistant-url='http://supervisor/core' \
-  --home-assistant-access-token="$SUPERVISOR_TOKEN"
+  --home-assistant-access-token="$SUPERVISOR_TOKEN" \
+  --http-ip-whitelist="172.30.32.2"
