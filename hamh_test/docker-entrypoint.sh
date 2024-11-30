@@ -1,5 +1,10 @@
 #!/usr/bin/with-contenv bashio
 
+bashio::addon.config
+echo ""
+bashio::addon.ingress_port
+echo ""
+
 home-assistant-matter-hub start \
   --log-level=$(bashio::config 'app_log_level') \
   --disable-log-colors=$(bashio::config 'disable_log_colors') \
