@@ -1,3 +1,14 @@
+## 3.0.0-alpha.48 (2024-11-30)
+
+### 🩹 Fixes
+
+- **cover:** add AbsolutePosition feature to position aware covers and fake PositionAware feature for non position aware covers ([7fb8a01](https://github.com/t0bst4r/home-assistant-matter-hub/commit/7fb8a01))
+- **docker:** remove environment variables from dockerfile ([24adece](https://github.com/t0bst4r/home-assistant-matter-hub/commit/24adece))
+
+### ❤️ Thank You
+
+- Tobias Glatthar @t0bst4r
+
 ## 3.0.0-alpha.47 (2024-11-30)
 
 ### 🚀 Features
@@ -7,7 +18,6 @@
 ### ⚠️  Breaking Changes
 
 - The native addon (HAOS) will use Home Assistant ingress from now on. Direct access via the port will no longer be possible.
-- It can happen that you are facing an "503 Service Unavailable" error after the update. Please see [this issue](https://github.com/t0bst4r/home-assistant-matter-hub/issues/230) for details.
 
 ### ❤️ Thank You
 
