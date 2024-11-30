@@ -7,6 +7,7 @@
 ### ⚠️  Breaking Changes
 
 - The native addon (HAOS) will use Home Assistant ingress from now on. Direct access via the port will no longer be possible.
+- It can happen that you are facing an "503 Service Unavailable" error after the update. Please see [this issue](https://github.com/t0bst4r/home-assistant-matter-hub/issues/230) for details.
 
 ### ❤️ Thank You
 
