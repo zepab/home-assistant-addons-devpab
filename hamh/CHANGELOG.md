@@ -5,9 +5,13 @@
 - add debug logging when home assistant actions fail ([d77826e](https://github.com/t0bst4r/home-assistant-matter-hub/commit/d77826e))
 - ⚠️  **thermostat:** refactor how states are synchronized ([551da69](https://github.com/t0bst4r/home-assistant-matter-hub/commit/551da69))
 
-### ⚠️  Breaking Changes
+### ⚠️  Breaking Changes / Feedback needed
 
 - **thermostat:** Auto mode from Home Assistant is no longer supported for climates / thermostats. It just doesn't fit into the Matter specification.
+  Instead, Heat/Cool from Home Assistant is mapped to AutoMode in Matter.
+  I tried to test as much as possible, but since I don't have any real climate device I needed to use GenericThermostat and BetterThermostat to make virtual climates.
+  My testings were therefore limited to simple tests with simple climates. This change could break existing behaviors.
+  Please provide feedback what is working as expected, and what isn't (#261).
 
 ### ❤️ Thank You
 
