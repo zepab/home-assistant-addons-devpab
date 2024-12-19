@@ -1,3 +1,21 @@
+## 3.0.0-alpha.56 (2024-12-19)
+
+### 🚀 Features
+
+- allow include and exclude by area ([a3ef4a6](https://github.com/t0bst4r/home-assistant-matter-hub/commit/a3ef4a6))
+- **basic-information:** add serial number to devices ([7c37dc1](https://github.com/t0bst4r/home-assistant-matter-hub/commit/7c37dc1))
+- **input_button:** add support for input_button entities ([7b38ad9](https://github.com/t0bst4r/home-assistant-matter-hub/commit/7b38ad9))
+
+### 🩹 Fixes
+
+- **lights:** enable features for on/off and level control ([e89cb67](https://github.com/t0bst4r/home-assistant-matter-hub/commit/e89cb67))
+- **on-off:** allow sending on and off commands, when already on or off ([898ba0d](https://github.com/t0bst4r/home-assistant-matter-hub/commit/898ba0d))
+
+### ❤️ Thank You
+
+- Timo Christeleit
+- Tobias Glatthar @t0bst4r
+
 ## 3.0.0-alpha.55 (2024-12-15)
 
 ### 🩹 Fixes
@@ -5,13 +23,9 @@
 - add debug logging when home assistant actions fail ([d77826e](https://github.com/t0bst4r/home-assistant-matter-hub/commit/d77826e))
 - ⚠️  **thermostat:** refactor how states are synchronized ([551da69](https://github.com/t0bst4r/home-assistant-matter-hub/commit/551da69))
 
-### ⚠️  Breaking Changes / Feedback needed
+### ⚠️  Breaking Changes
 
 - **thermostat:** Auto mode from Home Assistant is no longer supported for climates / thermostats. It just doesn't fit into the Matter specification.
-  Instead, Heat/Cool from Home Assistant is mapped to AutoMode in Matter.
-  I tried to test as much as possible, but since I don't have any real climate device I needed to use GenericThermostat and BetterThermostat to make virtual climates.
-  My testings were therefore limited to simple tests with simple climates. This change could break existing behaviors.
-  Please provide feedback what is working as expected, and what isn't (#261).
 
 ### ❤️ Thank You
 
