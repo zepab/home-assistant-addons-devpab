@@ -1,5 +1,5 @@
 version: "3.0.0-alpha.61.001"
-slug: hamh
+slug: hamhdevpab
 name: Home-Assistant-Matter-Hub-devpab
 description: Publish your entities from Home Assistant to any Matter-compatible controller like Alexa, Apple Home or Google Home.
 url: https://github.com/zepab/home-assistant-matter-hub
