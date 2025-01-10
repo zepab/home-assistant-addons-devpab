@@ -1,8 +1,8 @@
-version: "3.0.0-alpha.61"
+version: "3.0.0-alpha.61-devpab"
 slug: hamh
-name: Home-Assistant-Matter-Hub
+name: Home-Assistant-Matter-Hub-devpab
 description: Publish your entities from Home Assistant to any Matter-compatible controller like Alexa, Apple Home or Google Home.
-url: https://github.com/t0bst4r/home-assistant-matter-hub
+url: https://github.com/zepab/home-assistant-matter-hub
 panel_icon: mdi:hub
 panel_title: Matter Hub
 homeassistant: 2024.1.0
@@ -10,9 +10,7 @@ homeassistant_api: true
 host_network: true
 init: false
 arch:
-  - aarch64
   - amd64
-  - armv7
 ingress: true
 ingress_port: 0
 map:
